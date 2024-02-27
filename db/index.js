@@ -14,6 +14,7 @@ const dataBase = {
 
   addMessage(id, message) {
     const index = this.listUsers.findIndex((item) => item.id === id);
+    console.log('======', id, index, this.listUsers[index]);
     const obj = {
       id: id,
       name: this.listUsers[index].name,
@@ -21,6 +22,7 @@ const dataBase = {
       message: message,
     };
     this.listMessages.push(obj);
+    return obj;
   }
 };
 
