@@ -1,20 +1,22 @@
-const uuid = require('uuid'); 
-
 const dataBase = {
   listUsers: [],
   listMessages: [],
 
-  add(text) { // функция в объекте (для добавления пользователей)
+  add(id) { // функция в объекте (для добавления пользователей)
     const user = {
-      id: uuid.v4(),
-      name: text
+      id: id,
+      name: null
     }
     this.listUsers.push(user);
   },
 
+  addName(id, name) {
+    const index = this.listUsers.findIndex((item) => item.id === id);
+    this.listUsers[index].name = name;
+  },
+
   addMessage(id, message) {
     const index = this.listUsers.findIndex((item) => item.id === id);
-    console.log('======', id, index, this.listUsers[index]);
     const obj = {
       id: id,
       name: this.listUsers[index].name,
@@ -23,6 +25,13 @@ const dataBase = {
     };
     this.listMessages.push(obj);
     return obj;
+  },
+
+  delete(id) {
+    const index = this.listUsers.findIndex((item) => item.id === id);
+    const result = this.listUsers[index];
+    this.listUsers.splice(index, 1);
+    return result;
   }
 };
 
