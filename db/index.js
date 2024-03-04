@@ -4,9 +4,9 @@ const dataBase = {
 
   add(id) { // функция в объекте (для добавления пользователей)
     const user = {
-      id: id,
-      name: null
-    }
+      id,
+      name: null,
+    };
     this.listUsers.push(user);
   },
 
@@ -18,10 +18,10 @@ const dataBase = {
   addMessage(id, message) {
     const index = this.listUsers.findIndex((item) => item.id === id);
     const obj = {
-      id: id,
+      id,
       name: this.listUsers[index].name,
       create: Date.now(),
-      message: message,
+      message,
     };
     this.listMessages.push(obj);
     return obj;
@@ -32,7 +32,7 @@ const dataBase = {
     const result = this.listUsers[index];
     this.listUsers.splice(index, 1);
     return result;
-  }
+  },
 };
 
 module.exports = dataBase;

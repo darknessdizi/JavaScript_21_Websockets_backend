@@ -53,7 +53,7 @@ wsServer.on('connection', (ws) => {
       .filter(client => client.readyState === WS.OPEN) // Отбираем только подключенных клиентов
       .forEach(client => client.send(result)); // Всем подключенным отправляем сообщение
   });
-}); 
+});
 
 server.listen(port, (err) => {
   // два аргумента (1-й это порт, 2-й это callback по результатам запуска сервера)
@@ -62,5 +62,5 @@ server.listen(port, (err) => {
     console.log(err);
     return;
   }
-  console.log('Server is listening to 9000 port ************************');
+  console.log('Server is listening to 9000 port');
 });
