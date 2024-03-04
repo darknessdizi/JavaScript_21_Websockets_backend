@@ -8,12 +8,12 @@ router.post('/addUser', async (ctx) => {
   const { id, user } = ctx.request.body;
   const name = dataBase.listUsers.find((item) => item.name === user);
   if (name) {
-    ctx.response.body = { status: 'имя занято'};
+    ctx.response.body = { status: 'имя занято' };
     ctx.response.status = 200;
     return;
   }
   dataBase.addName(id, user);
-  ctx.response.body = { 
+  ctx.response.body = {
     status: 'ok',
     array: dataBase.listUsers,
     meassages: dataBase.listMessages,

@@ -2,7 +2,7 @@ const combineRouters = require('koa-combine-routers');
 const addUser = require('./addUser');
 
 const router = combineRouters(
-  addUser
+  addUser,
 );
 
 module.exports = router;
